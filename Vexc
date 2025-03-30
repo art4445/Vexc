@@ -4294,6 +4294,10 @@ function autoComplete(str,curText)
 end
 
 CMDs = {}
+CMDs[#CMDs + 1] = {NAME = '--Мои команды--', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = 'giveblocks', DESC = 'Выдает блоки'}
+CMDs[#CMDs + 1] = {NAME = '--Конец', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'oldconsole', DESC = 'Loads old Roblox console'}
@@ -12390,6 +12394,39 @@ end)
 
 
 
+addcmd("giveblocks", {}, function(args, speaker)
+	for _ = 1,100 do
+		ReplicatedStorage.SpawnGalaxyBlock:FireServer()
+	end
+	for _ = 1,100 do
+		ReplicatedStorage.SpawnRainbowBlock:FireServer()
+	end
+	for _ = 1,100 do
+		ReplicatedStorage.SpawnDiamondBlock:FireServer()
+	end
+	for _ = 1,200 do
+		ReplicatedStorage.SpawnSuperBlock:FireServer()
+	end
+	for _ = 1,200 do
+		ReplicatedStorage.SpawnLuckyBlock:FireServer()
+	end
+	for _ = 1,200 do
+		ReplicatedStorage.SpawnLuckyBlock:FireServer()
+	end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12655,9 +12692,15 @@ eventEditor.Refresh()
 
 -- Таблица с эвентами
 local NEWeventBinds = {
-    ["OnSpawn"] = {},
-    ["OnDied"] = {},
-    ["OnExecute"] = {},
+    ["OnSpawn"] = {
+        {COMMAND = "giveblocks", DELAY = 1},
+    },
+    ["OnDied"] = {
+        {COMMAND = "giveblocks", DELAY = 1},
+    },
+    ["OnExecute"] = {
+        {COMMAND = "giveblocks", DELAY = 1},
+    },
     ["OnKilled"] = {},
     ["OnJoin"] = {},
     ["OnLeave"] = {},
